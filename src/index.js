@@ -1,6 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import './index.css';
 import Search from './SearchBar/index';
+import configureStore from './store';
 
-ReactDOM.render(<Search />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={configureStore()}>
+    <Search />
+  </Provider>,
+  document.getElementById('root'),
+);
