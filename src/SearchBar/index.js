@@ -1,11 +1,33 @@
-import React, { Component } from 'react';
-import {SearchBar} from './SearchBar';
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+
+import { SearchBar } from './SearchBar';
+import { simpleAction } from './actions';
 
 class Search extends Component {
-    state = {  }
-    render() {
-        return ( <SearchBar />);
-    }
+  state = {};
+  handleClick = () => {
+    this.props.simpleAction();
+  };
+  render() {
+    return (
+      <Fragment>
+        <button onClick={this.handleClick}>YOYO</button>
+        <SearchBar />
+        <pre>{JSON.stringify(this.props)}</pre>
+      </Fragment>
+    );
+  }
 }
 
-export default Search;
+const mapStateToProps = state => ({
+  ...state,
+});
+
+const mapDispatchToProps = dispatch => ({
+  simpleAction: () => dispatch(simpleAction()),
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Search);
