@@ -1,8 +1,13 @@
-export default (state = {}, action) => {
+const initialState = {
+  meals: []
+};
+
+export default (state = initialState, action) => {
   switch (action.type) {
-    case 'SIMPLE_ACTION':
+    case 'SEARCH':
       return {
-        result: action.payload,
+        ...state,
+        meals: action.payload,
       };
     default:
       return state;
