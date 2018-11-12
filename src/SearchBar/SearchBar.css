@@ -1,0 +1,12 @@
+input {
+  background: #fff;
+  width: 40%;
+  margin: 20px auto;
+  padding: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font: 400 13.3333px Arial;
+}
+
+button{
+    padding: 20px;
+}
